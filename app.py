@@ -6,7 +6,7 @@ from psutil._common import bytes2human
 import psutil._common
 from flask import Flask, render_template
 
-from fabric import *
+#from fabric import *
 from os.path import exists
 
 from invoke import run
@@ -27,13 +27,13 @@ qr = qrcode.QRCode(version=1, box_size=10, border=5)
 
 
 #Gets all information about Random Access Memory (RAM)
-def get_RAM_details(ram):
+def get_ram_details(ram):
     qr.add_data("MEMORY\n")
     for name in ram._fields:
         value = getattr(ram, name)
         if name != 'percent':
             value = bytes2human(value)
-        add_QR_data('%-10s : %7s' % (name.capitalize(), value)+'\n') #add to QR image
+        add_qr_data('%-10s : %7s' % (name.capitalize(), value)+'\n') #add to QR image
 
 #Gets all information about Hard Disk Drive storage
 def get_disk_usage(disk_space):
@@ -42,7 +42,7 @@ def get_disk_usage(disk_space):
         value = getattr(disk_space, name)
         if name != 'percent':
             value = bytes2human(value)
-        add_QR_data('%-10s : %7s' % (name.capitalize(), value)+'\n') #add to QR image
+        add_qr_data('%-10s : %7s' % (name.capitalize(), value)+'\n') #add to QR image
 
 #Gets POC information
 def get_poc_versions(core, art, api):
@@ -51,16 +51,23 @@ def get_poc_versions(core, art, api):
     core_result = run('cd ', _poc_core_dir | 'git describe --taps')
     art_result = run('cd', _poc_core_art_dir | 'git describe --tags')
 
-    add_QR_data('%-10s : %7s' % ("API ", api_result)+'\n')
-    add_QR_data('%-10s : %7s' % ("CORE ", core_result)+'\n')
-    add_QR_data('%-10s : %7s' % ("ART", art_result)+'\n')
+    add_qr_data('%-10s : %7s' % ("API ", api_result)+'\n')
+    add_qr_data('%-10s : %7s' % ("CORE ", core_result)+'\n')
+    add_qr_data('%-10s : %7s' % ("ART", art_result)+'\n')
+
+#Get EMC information
+def get_emc_versions(emc):
+    qr.add_data("\n EMC CURRENT VERSION \n")
+    emc_result = run('cd ',_emc_dir | 'git describe --tags')
+    add_qr_data('%-10s : %7s' % ("EMC ", emc_result) + '\n')
+
 
 #Check for Installed Systems
 def check_systems ():
     if exists(_emc_dir):
         #got to EMC unction
     elif exists(_poc_api_dir, _poc_core_art_dir, _poc_core_dir):
-        #got to POC function
+        get_poc_versions(_poc_core_dir, _poc_core_art_dir, _poc_api_dir)
 
 
 
@@ -68,7 +75,7 @@ def check_systems ():
 
 
 
-def add_QR_data(input_data):
+def add_qr_data(input_data):
     qr.add_data(input_data)
     qr.make(fit=True)
     img = qr.make_image(fill='black', back_color='white')
@@ -83,7 +90,7 @@ def index():
     img = qr.make_image(fill='black', back_color='white')
     return render_template('index.html')
 
-@app.route('/getQrImage')
+@app.route('/get-qr-Image')
 def get_image():
     image_name = 'qrcode001.png'
     #Simage_name.Seek(0)
@@ -91,8 +98,9 @@ def get_image():
 
 
 def main():
-    get_RAM_details(psutil.virtual_memory())
+    get_ram_details(psutil.virtual_memory().available)
     get_disk_usage(psutil.disk_usage('/'))
+    check_systems()
     get_image()
 
 
