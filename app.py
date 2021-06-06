@@ -1,18 +1,11 @@
-import socket
-from sys import stdout
-
-import flask
-import os
 import psutil
 import qrcode
 import subprocess
 from psutil._common import bytes2human
 import psutil._common
 from flask import Flask, render_template
-
-#from fabric import *
 from os.path import exists
-from invoke import run
+
 
 app = Flask(__name__, static_folder="templates/static")
 
@@ -22,8 +15,8 @@ _emc_dir = "/var/www/emastercard-upgrade-automation"
 _poc_api_dir = "/var/www/BHT-EMR-API"
 _poc_core_dir = "/var/www/BHT-Core"
 _poc_core_art_dir = "/var/www/BHT-Core/apps/ART"
-_con = socket.gethostbyname(socket.gethostname())
-#_con = flask.request.remote_addr
+
+
 # **************sample data will be taken from the following functions*********************
 
 
@@ -55,9 +48,10 @@ def get_disk_usage(disk_space):
 # Gets POC information
 def get_poc_versions():
     qr.add_data("\n POC VERSION \n")
-    api_result = subprocess.run('cd ', _poc_api_dir | 'git describe --tags')
-    core_result = subprocess.run('cd ', _poc_core_dir | 'git describe --taps')
-    art_result = run('cd', _poc_core_art_dir | 'git describe --tags')
+    command = "git describe --tags"
+    api_result = subprocess.Popen(command, shell=True, cwd='{}'.format(_poc_api_dir))
+    core_result = subprocess.Popen(command, shell=True, cwd='{}'.format(_poc_core_dir))
+    art_result = subprocess.Popen(command, shell=True, cwd='{}'.format(_poc_core_art_dir))
 
     add_qr_data('%-10s : %7s' % ("API ", api_result) + '\n')
     add_qr_data('%-10s : %7s' % ("CORE ", core_result) + '\n')
