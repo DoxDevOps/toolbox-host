@@ -1,10 +1,9 @@
 import platform
-from utils.generate_qr_image import qr, add_qr_data
+from utils.generate_qr_image import add_qr_data
 
 
 # check for Platform Information
 def platform_info():
-    qr.add_data('\n PLATFORM INFORMATION \n')
     osname = platform.system()
     version = platform.release()
     osname = osname.split('\n')
