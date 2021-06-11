@@ -12,5 +12,5 @@ def platform_info():
         version_str = x.strip()
     for y in osname:
         osname_str = y.strip()
-    add_qr_data('%-10s : %7s' % ("OS release", version_str) + '\n')
-    add_qr_data('%-10s : %7s' % ("OS", osname_str) + '\n')
+    add_qr_data('%-10s : %7s' % ("OS release", version_str) + ';')
+    add_qr_data('%-10s : %7s' % ("OS", osname_str) + ';')

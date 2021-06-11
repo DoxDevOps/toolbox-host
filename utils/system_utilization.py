@@ -9,4 +9,4 @@ def get_ram_details(ram):
 
 # Gets all information about Hard Disk Drive storage
 def get_disk_usage(disk_space):
-    add_qr_data('%-10s : %7s' % ("HDD space Available ", disk_space >> 30) + 'GB\n')  # sends data to QR image
+    add_qr_data('%-10s : %7s' % ("HDD space Available ", disk_space >> 30) + 'GB;')  # sends data to QR image
