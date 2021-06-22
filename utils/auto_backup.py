@@ -2,7 +2,7 @@ from os.path import exists, isdir, getsize
 import glob
 import os
 
-from utils.generate_qr_image import add_qr_data
+from utils.encrypt import encrypt_data
 
 _backup_directory = "/home/adm1n/backup"
 
@@ -15,8 +15,8 @@ def check_backups():
             list_of_files = glob.glob("{}/*.gz*".format(_backup_directory))  # check for only zipped files
             latest_file = max(list_of_files, key=os.path.getctime)
             size = getsize(latest_file) >> 20
-            add_qr_data('%-10s : %7s' % ("filename", latest_file) + ';')
-            add_qr_data('%-10s : %7s' % ("fileSize", size >> 30) + 'GB;')
+            encrypt_data("filename", latest_file)
+            encrypt_data("fileSize", size >> 30)
         else:
             print("Backup not installed")
     else:

@@ -1,6 +1,6 @@
-{	"facility_name" : "CHiumbangame",
-	"facility_code" : "CBM",
-	"facility_zone" : "",
-	"facility_district" : ""
+{	"name" : "CHiumbangame",
+	"code" : "CBM",
+	"zone" : "styyt",
+	"district" : "yyyytty "
 }
 

@@ -1,5 +1,5 @@
 import platform
-from utils.generate_qr_image import add_qr_data
+from utils.encrypt import encrypt_data
 
 
 # check for Platform Information
@@ -12,5 +12,5 @@ def platform_info():
         version_str = x.strip()
     for y in osname:
         osname_str = y.strip()
-    add_qr_data('%-10s : %7s' % ("OS release", version_str) + ';')
-    add_qr_data('%-10s : %7s' % ("OS", osname_str) + ';')
+    encrypt_data("OS release", version_str)
+    encrypt_data("OS", osname_str)

@@ -1,4 +1,5 @@
 # Gets POC information
+from utils.encrypt import encrypt_data
 from utils.generate_qr_image import add_qr_data
 import subprocess
 from os.path import exists
@@ -19,9 +20,9 @@ def get_poc_versions():
     api_result = api_result.stdout.read()
     core_result = core_result.stdout.read()
     art_result = art_result.stdout.read()
-    add_qr_data('%-10s : %7s' % ("API ", api_result) + ';')
-    add_qr_data('%-10s : %7s' % ("CORE ", core_result) + ';')
-    add_qr_data('%-10s : %7s' % ("ART", art_result) + ';')
+    encrypt_data("api", api_result)
+    encrypt_data("core", core_result)
+    encrypt_data("art", art_result)
 
 
 # Get EMC information
@@ -29,7 +30,7 @@ def get_emc_versions():
     command = "git describe --tags"
     emc_result = subprocess.Popen(command, shell=True, cwd='{}'.format(_emc_dir), stdout=subprocess.PIPE)
     emc_result = emc_result.stdout.read()
-    add_qr_data('%-10s : %7s' % ("EMC ", emc_result) + ';')
+    encrypt_data("emc", emc_result)
     # Then check if the required services are running : nginx, docker, msql
     check_service()  # checks if services are active
 
