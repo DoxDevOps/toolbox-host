@@ -7,7 +7,7 @@ import platform
 import netifaces
 import psutil
 import psutil._common
-from utils.encrypt_make_qr_image import encrypt
+
 
 
 class auto_backup:
