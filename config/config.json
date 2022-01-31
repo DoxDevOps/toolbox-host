@@ -1,6 +1,7 @@
-{	"name" : "CHiumbangame",
-	"code" : "CBM",
-	"zone" : "styyt",
-	"district" : "yyyytty "
+{	"name" : "Monkey Bay Hospital",
+	"code" : "MKB",
+	"zone" : "Eastern",
+	"district" : "Mangochi ",
+	"site_ip_address" : "10.42.34.3"
 }
 

@@ -15,6 +15,7 @@ def test():
     return json.dumps({"status": "success", "message": "Welcome to Toolbox-host QR Service !!"}), 200
 
 
+@app.route('/check-site')
 def main():
     # first check if the config file is configured.
     site_result = facility_details().get_facility_details()  # If all Site Information is correct.
