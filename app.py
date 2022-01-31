@@ -3,12 +3,16 @@ from utils.system_check import *
 from utils.encrypt_make_qr_image import *
 from collections import OrderedDict
 
-app = Flask(__name__, static_folder="templates/static")
+app = Flask(__name__)
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route('/home')
+def test():
+    """
+    Just Testing if the app is Alright and Reachable
+    :return: Json String
+    """
+    return json.dumps({"status": "success", "message": "Welcome to Toolbox-host QR Service !!"}), 200
 
 
 def main():
@@ -51,7 +55,7 @@ def main():
     # another QR Image, it will be replaced when the code runs
 
     #****** TESTING TESTING ********** will be removed for later**********
-    # just checking if the encrpted data can be decrypted
+    # just checking if the encrypted data can be decrypted
     testing = encrypt().encrypt_data("data", final_string_to_decrypt)
 
     decoded_jwt = jwt.decode(testing, "secret", algorithms="HS256")
