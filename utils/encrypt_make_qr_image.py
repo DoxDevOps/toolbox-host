@@ -5,6 +5,9 @@ key = "secret"
 
 
 class encrypt_make_qr_image:
+    def __init__(self):
+        pass
+
     def _init_(self, identifier, input_data):
         self.input_data = input_data
         self.identifier = identifier

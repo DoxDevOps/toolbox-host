@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from utils.system_check import *
 from utils.check_config import *
 from utils.encrypt_make_qr_image import *
+from utils.emr_systems import *
 from collections import OrderedDict
 
 app = Flask(__name__)
@@ -24,12 +25,12 @@ def get_emr_data():
         return render_template('error.html')  # Render the Error page
     else:  # if the config file is set correctly, continue checking the services
         emr_result = emr_systems().check_systems()  # checks if site is running a POC or EMC system
-        ip_result = site_ip_address().get_site_ip_address()  # gets site ip WAN address
-        hdd_result = system_utilization().get_hdd_details()  # gets HDD used percentage
-        ram_result = system_utilization().get_ram_details()  # gets RAM details
-        services_result = running_processes().check_service()  # gets services running e.g mysql, docker, nginx
+        ip_result = emr_systems().get_site_ip_address()  # gets site ip WAN address
+        hdd_result = system_check().get_hdd_details()  # gets HDD used percentage
+        ram_result = system_check().get_ram_details()  # gets RAM details
+        services_result = system_check().check_service()  # gets services running e.g mysql, docker, nginx
         # platform().platform_info() #currenlty disabled
-        backup_result = auto_backup().check_backups()  # checks if back up is working (returns true or false)
+        backup_result = emr_systems().check_backups()  # checks if back up is working (returns true or false)
 
         # This is a final Dictionary to be sent for encryption
         final_string_to_decrypt = \
