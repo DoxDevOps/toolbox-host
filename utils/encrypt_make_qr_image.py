@@ -4,21 +4,22 @@ import qrcode
 key = "secret"
 
 
-class encrypt:
+class encrypt_make_qr_image:
     def _init_(self, identifier, input_data):
         self.input_data = input_data
         self.identifier = identifier
 
     def encrypt_data(self, identifier, input_data):
+        """
+        THis function encrypts the data
+        :param identifier: how will the data be identified
+        :param input_data: what is the actual data
+        :return: Encrypted string
+        """
         if len(identifier) < 1 and len(input_data) < 1:
             return False
         encoded_jwt = jwt.encode({identifier: input_data}, key, algorithm="HS256")  # encrypt your data
         return encoded_jwt
-
-
-class generate_qr_image:
-    def _init_(self, input_data):
-        self.input_data = input_data
 
     def add_qr_data(self, input_data):
         if not input_data:

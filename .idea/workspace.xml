@@ -7,7 +7,6 @@
     <list default="true" id="91d6b908-e77b-4d86-a788-f5a68002ef83" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/check-config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/check_config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/encrypt_make_qr_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/encrypt_make_qr_image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

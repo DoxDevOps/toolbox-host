@@ -59,16 +59,9 @@ def encrypt():
     """
     final_string_to_decrypt = get_emr_data()
     # now send to QR IMAGE after Encrypting the final string
-    generate_qr_image().add_qr_data(encrypt().encrypt_data("data", final_string_to_decrypt))  # NOTE : If there is
+    result = encrypt_make_qr_image().add_qr_data(encrypt().encrypt_data("data", final_string_to_decrypt))  # NOTE : If there is
     # another QR Image, it will be replaced when the code runs
-
-    # ****** TESTING TESTING ********** will be removed for later**********
-    # just checking if the encrypted data can be decrypted
-    testing = encrypt().encrypt_data("data", final_string_to_decrypt)
-
-    decoded_jwt = jwt.decode(testing, "secret", algorithms="HS256")
-    print(decoded_jwt)
-    # *********END OF TESTING ******************
+    return result
 
 
 if __name__ == '__main__':
