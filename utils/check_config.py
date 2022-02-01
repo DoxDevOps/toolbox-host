@@ -10,11 +10,11 @@ class facility_details:
         site_info = open('config/config.json', )  # Read the Json File
         site_data = json.load(site_info)  # return JSON object as a dictionary
 
-        site_name = site_data["name"].lstrip()
-        site_code = site_data["code"].lstrip()
-        site_zone = site_data["zone"].lstrip()
-        site_district = site_data["district"].lstrip()
-        site_ip_address = site_data["site_ip_address"].lstrip()
+        site_name = site_data["name"].strip()
+        site_code = site_data["code"].strip()
+        site_zone = site_data["zone"].strip()
+        site_district = site_data["district"].strip()
+        site_ip_address = site_data["site_ip_address"].strip()
 
         if len(site_name) < 1 and len(site_code) < 1 and len(site_zone) < 1 and len(site_district) < 1:
 

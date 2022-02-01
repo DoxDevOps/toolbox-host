@@ -10,7 +10,7 @@ class encrypt:
         self.identifier = identifier
 
     def encrypt_data(self, identifier, input_data):
-        if len(identifier) < 1 and len(input_data) <1:
+        if len(identifier) < 1 and len(input_data) < 1:
             return False
         encoded_jwt = jwt.encode({identifier: input_data}, key, algorithm="HS256")  # encrypt your data
         return encoded_jwt
