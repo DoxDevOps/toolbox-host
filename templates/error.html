@@ -28,7 +28,7 @@
     
 <div class="col-lg-8 mx-auto p-3 py-md-5">
   <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+    <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
       <span class="fs-4"><b>Toolbox Host</b></span>
     </a>
   </header>
@@ -37,7 +37,7 @@
 
     <div class="row">
       <div class="col">
-        <img src="{{ url_for('static', filename='images/toolboxError.jpg') }}" class="img-fluid img-thumbnail" alt="Responsive imagex" height="200" width="200" style="display: block; margin-left: auto; margin-right: auto;"><br /><br />
+        <img src="{{ url_for('.static', filename='images/toolboxError.jpg') }}" class="img-fluid img-thumbnail" alt="Responsive imagex" height="200" width="200" style="display: block; margin-left: auto; margin-right: auto;"><br /><br />
 
         <h1 style="text-align: center"> ERROR :NO QR IMAGE GENERATED :(</h1>
         <p class="fs-5 col-md-12" style="text-align: center ">Please Check the Config file. Make sure all 'values' are not Empty</p>
