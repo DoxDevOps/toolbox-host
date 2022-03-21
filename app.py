@@ -12,7 +12,7 @@ app = Flask(__name__)
 def test():
     """
     Just Testing if the app is Alright and Reachable
-    :return: Json String
+    :return: Json String.
     """
     return json.dumps({"status": "success", "message": "Welcome to Toolbox-host QR Service !!"}), 200
 
