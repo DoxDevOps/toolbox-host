@@ -28,7 +28,7 @@ class encrypt_make_qr_image:
         if not input_data:
             return False
         # Create QR Code Instance. It determines the size of the QR code
-        qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4)
+        qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=15, border=4)
         qr.add_data(input_data)
         qr.make(fit=True)
         img = qr.make_image(fill='black', back_color='white')

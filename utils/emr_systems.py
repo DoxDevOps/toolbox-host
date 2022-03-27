@@ -21,6 +21,7 @@ class emr_systems:
     poc_core_art_dir = "/var/www/BHT-Core/apps/ART"  # POC ART Folder'''
 
     def check_backups(self):
+        """Check for Back up"""
         if exists(self.backup_dir) and isdir(self.backup_dir):  # check if the folder exists
             list_of_files = glob.glob("{}/*.gz*".format(self.backup_dir))  # check for only zipped files
             latest_file = max(list_of_files, key=os.path.getctime)
@@ -55,6 +56,7 @@ class emr_systems:
                 "art": art_result
             }
         json_object = json.dumps(poc_version_dict)
+        json_object = json.loads(json_object)
         return json_object
 
     # Get EMC information
@@ -68,12 +70,12 @@ class emr_systems:
                 "emc": emc_result
             }
         json_object = json.dumps(emc_version_dict)
+        json_object = json.loads(json_object)
         return json_object
 
     # Check for Installed Systems
     def check_systems(self):
-        print("the method has been called")
-
+        """Checks if a site has POC or EMC installed"""
         if exists(self.emc_dir):  # check if emc folder exist
             return self.get_emc_versions()
         elif exists(self.poc_api_dir):  # check if poc api, core, art folder exist
@@ -87,7 +89,6 @@ class emr_systems:
     def get_site_ip_address(self):
         iface = netifaces.gateways()['default'][netifaces.AF_INET][1]
         site_ip_address = netifaces.ifaddresses(iface)[netifaces.AF_INET][0]['addr']
-
         ip_dict = \
             {
                 "ip": site_ip_address
