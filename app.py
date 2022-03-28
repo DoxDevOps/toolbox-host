@@ -33,6 +33,8 @@ def get_emr_data():
     print("called 1")
     # first check if the config file is configured.
     site_result = facility_details().get_facility_details()  # If all Site Information is correct.
+    print("SITE DETAILS")
+    print(site_result["uuid"])
     if not site_result:  # If the file is  not complete. then the application will exit.
         return render_template('error.html')  # Render the Error page
     else:  # if the config file is set correctly, continue checking the services
@@ -48,7 +50,8 @@ def get_emr_data():
         final_string_to_decrypt = \
             {
                 "1": "Toolbox",
-                "uuid": site_result,
+                "uuid": site_result["uuid"],
+                "app_id":site_result["app_id"],
                 "module": emr_result
 
             }
