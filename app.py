@@ -1,10 +1,9 @@
-from flask import render_template
-from flask import Flask
+from flask import Flask, render_template
 from utils.system_check import *
 from utils.check_config import *
 from utils.encrypt_make_qr_image import *
 from utils.emr_systems import *
-from collections import OrderedDict
+
 
 app = Flask(__name__, static_folder="templates/static")
 
