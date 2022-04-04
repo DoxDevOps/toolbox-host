@@ -16,6 +16,7 @@ class emr_systems:
     user = getpass.getuser()
     backup_dir = "/home/"+user+"/backup"
     emc_dir = "/var/www/emastercard-upgrade-automation"  # EMC installation directory
+    emc_dir2 = "/var/www/emastercard-upgrade-automation"  # some sites have EMC in the Home directory.
     poc_api_dir = "/var/www/BHT-EMR-API"  # POC Api Folder
     poc_core_dir = "/var/www/BHT-Core"  # POC Core Folder
     poc_core_art_dir = "/var/www/BHT-Core/apps/ART"  # POC ART Folder'''
@@ -76,7 +77,8 @@ class emr_systems:
     # Check for Installed Systems
     def check_systems(self):
         """Checks if a site has POC or EMC installed"""
-        if exists(self.emc_dir):  # check if emc folder exist
+        if exists(self.emc_dir or self.emc_dir2):  # check if emc folder exist
+            print("yeyyy")
             return self.get_emc_versions()
         elif exists(self.poc_api_dir):  # check if poc api, core, art folder exist
             if exists(self.poc_core_art_dir):
