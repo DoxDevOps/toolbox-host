@@ -61,6 +61,7 @@ class emr_systems:
         return json_object
 
     # Get EMC information
+
     def get_emc_versions(self):
         command = "git describe --tags"
         emc_result = subprocess.Popen(command, shell=True, cwd='{}'.format(self.emc_dir), stdout=subprocess.PIPE)
@@ -75,18 +76,18 @@ class emr_systems:
         return json_object
 
     # Check for Installed Systems
+
     def check_systems(self):
         """Checks if a site has POC or EMC installed"""
         if exists(self.emc_dir or self.emc_dir2):  # check if emc folder exist
-            print("yeyyy")
             return self.get_emc_versions()
         elif exists(self.poc_api_dir):  # check if poc api, core, art folder exist
             if exists(self.poc_core_art_dir):
                 if exists(self.poc_core_dir):
                     return self.get_poc_versions()
-
         else:
             return False
+
 
     def get_site_ip_address(self):
         iface = netifaces.gateways()['default'][netifaces.AF_INET][1]

@@ -10,7 +10,7 @@ def configure_site():
     print("Step 2: Install Pip.")
     answer1 = os.system("sudo apt install python-pip")
     print(answer1)
-    print("Step3 : install pyhton environment")
+    print("Step3 : install python environment")
     os.system("sudo apt install virtualenv")
     os.system("virtualenv flask")
     os.system(". flask/bin/activate && pip install -r requirements.txt && python app.py")

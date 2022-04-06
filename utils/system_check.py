@@ -14,6 +14,7 @@ class system_check:
     disk_space = psutil.disk_usage('/')
 
     # RAM
+
     def get_ram_details(self):
         ram_dict = \
             {
@@ -28,6 +29,7 @@ class system_check:
         return json_object
 
     # HDD
+    @property
     def get_hdd_details(self):
         hdd_dict = \
             {
@@ -40,6 +42,7 @@ class system_check:
 
         return json_object
 
+    @property
     def check_service(self):
         services = ["docker", "mysql", "nginx"]  # service to check (Active or Inactive)
         running_services_dict = {}
