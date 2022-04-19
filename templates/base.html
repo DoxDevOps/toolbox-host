@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,9 +7,6 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
     <title>Toolbox host</title>
-
-
-    
 
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Favicons -->
@@ -25,11 +21,15 @@
     </style>
   </head>
   <body>
-    
+
 <div class="col-lg-8 mx-auto p-3 py-md-5">
   <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-    <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
-      <span class="fs-4"><b>Toolbox Host</b></span>
+    <img src="{{ url_for('static', filename='images/egpaflogo.png') }}" class="img-fluid img-thumbnail" alt="Responsive imagex" height="350" width="350" style="display: block; margin-left: o; margin-right: auto;"><br /><br />
+
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <span class="fs-4"><b>Toolbox </b> {% if site_name %}
+          : {{ site_name }}
+      {% endif %}</span>
     </a>
   </header>
 
@@ -37,23 +37,24 @@
 
     <div class="row">
       <div class="col">
-        <img src="{{ url_for('static', filename='images/toolboxError.jpg') }}" class="img-fluid img-thumbnail" alt="Responsive imagex" height="250" width="250" style="display: block; margin-left: auto; margin-right: auto;"><br /><br />
 
-        <h1 style="text-align: center"> ERROR :NO QR IMAGE GENERATED :(</h1>
-        <p class="fs-5 col-md-12" style="text-align: center ">Please Check the Config file. Make sure all 'values' are not Empty</p>
+       {% block content %}
+
+        {% endblock %}
+
+
+
+        <h1 style="text-align: center">Get started with Toolbox</h1>
+        <p class="fs-5 col-md-12" style="text-align: center ">Quickly and easily validate version running on the host, diagnose the host and more. Scan the QR Code using your Toolbox capturer to begin.</p>
       </div>
     </div>
-    
+
   </main>
 
   <br />
   <br />
-  
+
 </div>
-
-
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-
-      
   </body>
 </html>

@@ -16,7 +16,10 @@ class emr_systems:
     user = getpass.getuser()
     backup_dir = "/home/"+user+"/backup"
     emc_dir = "/var/www/emastercard-upgrade-automation"  # EMC installation directory
-    emc_dir2 = "/var/www/emastercard-upgrade-automation"  # some sites have EMC in the Home directory.
+    emc_dir2 = "/emastercard-upgrade-automation"  # some sites have EMC in the Home directory.
+    """TO DO :
+    # POC -html: 1. check all possible directory 
+    #"""
     poc_api_dir = "/var/www/BHT-EMR-API"  # POC Api Folder
     poc_core_dir = "/var/www/BHT-Core"  # POC Core Folder
     poc_core_art_dir = "/var/www/BHT-Core/apps/ART"  # POC ART Folder'''
