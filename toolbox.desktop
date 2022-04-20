@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Toolbox
+Type=Link
+URL=http://0.0.0.0:6070/
+Icon=/../../../var/www/toolbox-host/templates/static/images/icon.png

@@ -5,54 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91d6b908-e77b-4d86-a788-f5a68002ef83" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/static/images/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/activate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/activate.csh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/activate.fish" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/activate_this.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/easy_install" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/easy_install-2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/flask" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/pip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/pip2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/pip2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/pyjwt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/python" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/python-config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/python2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/python2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/qr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/bin/wheel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/include/python2.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/local/bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/local/include" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/local/lib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/man/man1/qr.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/CacheControl-0.11.7-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/appdirs-1.4.3-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/certifi-2018.1.18-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/chardet-3.0.4-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/colorama-0.3.7-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/distlib-0.2.6-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/distro-1.0.1-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/html5lib-0.999999999-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/idna-2.6-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/ipaddress-0.0.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/lockfile-0.12.2-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/packaging-17.1-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/pkg_resources-0.0.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/progress-1.2-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/pyparsing-2.2.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/requests-2.18.4-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/retrying-1.3.3-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/setuptools-39.0.1-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/six-1.11.0-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/urllib3-1.22-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/webencodings-0.5-py2.py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/share/python-wheels/wheel-0.30.0-py2.py3-none-any.whl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +64,9 @@
     <option name="height" value="743" />
   </component>
   <component name="ProjectId" id="24SiAJDuTVzwnit4Fr6PK7liRE0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -161,6 +118,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "last_opened_file_path": "/home/egpaf/Documents/DevopsProjects/toolbox-host"
   }
 }]]></component>
@@ -290,6 +248,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
