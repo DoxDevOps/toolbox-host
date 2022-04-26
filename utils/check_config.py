@@ -24,19 +24,18 @@ class facility_details:
         else:
             return False
 
-    def save_facility_details(self, uuid):  # this function will be called whe we implement a POP UP MENU for Site
+    def save_facility_details(self,site_data):  # this function will be called whe we implement a POP UP MENU for Site
         # details to be entered on the web browser
-        with open('config/.sites.json') as f:
-            all_sites = json.load(f)
-            for x in all_sites:
-                getit = json.dumps(x["uuid"])
-                if getit == uuid:
-                    app_id = x["apps"]
-                    site_name = x["name"]
+        if site_data["apps"][0] == "Point of Care":
+            app_id =1
+        else: 
+            app_id =2
 
-                    with open("config/config.json", "w") as data:
-                        information = {"uuid": json.loads(uuid), "app_id": int(app_id), "site_name": site_name}
-                        data.write(json.dumps(information))
-                        data.close()
-            f.close()
-            return True
+        site_name = site_data["name"]
+        uuid = site_data["uuid"]
+        with open("config/config.json", "w") as data:
+            information = {"uuid": uuid, "app_id": app_id, "site_name": site_name}
+            data.write(json.dumps(information))
+            data.close()
+
+        return True
