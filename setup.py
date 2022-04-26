@@ -14,7 +14,7 @@ def configure_site():
     os.system("sudo apt install virtualenv")
     os.system("virtualenv flask")
     os.system(
-        ". flask/bin/activate && pip install -r requirements.txt && FLASK_APP=app.py FLASK_ENV=development flask run --port 6070")
+        ". tool-box/bin/activate && pip install -r requirements.txt && FLASK_APP=app.py FLASK_ENV=development flask run --port 6070")
     print("creating Toolbox Service")
     # here is the code for creating the site.
     os.system("cat > /etc/systemd/system/autotransfer.service <<EOF \
