@@ -13,7 +13,7 @@ def get_facility_name():
 def search_facilities(facility_name):
     url = 'https://toolbox.hismalawi.org/ext-api/site/get/details'
 
-    token = 'yyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzY0MjQ0NjR9.iRlIMoZgYUQxZMq-CZiLusUfPyofkLCA8djNbOaJYT0'
+    token = 'TOKEN'
     json_dict = {'site_name' : facility_name}
 
     # convert json_dict to JSON
@@ -42,15 +42,18 @@ def display_facilities(facilities):
     select_facility(facilities,counter)
 
 def select_facility(facilities,counter):
-    try:
-        facility_number =int(raw_input("\n\nConfirm Facility Name by Entering a number = ")) - 1
-        if facility_number+1 > counter:
-            print("\n No district found with that number")
-            select_facility(facilities,counter)
-        save_facility(facilities,facility_number)
-    except: 
-        print("\nPlease enter a valid number") 
-        #select_facility(facilities,counter)
+    while True:
+        try:
+            facility_number =int(raw_input("\n\nConfirm Facility Name by Entering a number = ")) - 1
+            if facility_number+1 > counter:
+                print("\n No district found with that number")
+                continue
+            save_facility(facilities,facility_number)
+        except ValueError: 
+            print("\nPlease enter a valid number") 
+            continue
+        else:
+            break
    
 def save_facility(facilities,facility_number):
     selected_facility =facilities[facility_number]['fields']['name']
