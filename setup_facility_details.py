@@ -1,20 +1,27 @@
-#! /usr/bin/python
+#!/bin/bash
 import json
-import os
 import urllib2
-
-
-from utils.check_config import facility_details
 import re
 import uuid
+from utils.check_config import facility_details
 
 
 def get_facility_name():
+    """
+    starting point. prompts user to enter a suggested facility name
+    :return: Boolean (just a checker )
+    """
     facility_name = raw_input("Enter Facility Name Please : ")
     search_facilities(facility_name)
+    return True
 
 
 def search_facilities(facility_name):
+    """
+    get suggested name and search in a remote server
+    :param facility_name: string
+    :return: boolean (just a checker)
+    """
     settings = load_settings("config/.json")
     url = settings["endpoint"]
     token = settings["token"]
@@ -23,6 +30,7 @@ def search_facilities(facility_name):
     # convert json_dict to JSON
     json_data = json.dumps(json_dict)
 
+    # Creating a Post request
     req = urllib2.Request(url, json_data)
     req.get_method = lambda: 'GET'
     req.add_header('Content-type', 'application/json')
@@ -34,19 +42,33 @@ def search_facilities(facility_name):
         display_facilities(results)
     else:
         print("\n No match Found, Please try again :")
-        get_facility_name()
+        get_facility_name() # start all over
+    return True
 
 
 def display_facilities(facilities):
+    """
+    displays all possible sites
+    :param facilities: json object
+    :return:
+    """
     facilities = json.loads(facilities)
     counter = 0
     for facility in facilities:
         counter += 1
         print(str(counter) + " " + facility['fields']['name'])
     select_facility(facilities, counter)
+    return True
 
 
 def select_facility(facilities, counter):
+    """
+    gives a user an option to select sites from a given list
+    :type counter: int
+    :type facilities: json object
+    :param facilities: json object
+    :param counter: a counter on the number of sites retrieved
+    """
     while True:
         try:
             facility_number = int(raw_input("\nConfirm Facility Name by Entering a Number : ")) - 1
@@ -68,9 +90,11 @@ def select_facility(facilities, counter):
 def save_facility(facilities, facility_number):
     """
     saves facility details after configuration
+    :type facilities: json object
+    :type facility_number: int
     :param facilities:
     :param facility_number: number se
-    :return:
+    :return: Boolean
     """
     selected_facility = facilities[facility_number]['fields']['name']
     site_data = {"apps": facilities[facility_number]['fields']['apps'], "name": selected_facility,
@@ -96,12 +120,11 @@ def send_mac_address():
 
 
 def load_settings(location):
-    # type: () -> object
     """
     a function that loads settings (token and endpoint)
     :type location: string
     :return: json object
     """
     with open(location) as f:
-        settings = json.load(f)  # type: object
+        settings = json.load(f)
     return settings

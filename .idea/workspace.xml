@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="91d6b908-e77b-4d86-a788-f5a68002ef83" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reconfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/reconfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup_facility_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup_facility_details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/static/images/toolbox.png" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static/images/toolbox.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
