@@ -1,13 +1,12 @@
 #! /usr/bin/python
 import os
-import re
-import uuid
 
 
+from setup_facility_details import get_facility_name, mac_address
 
 
 def configure_site():
-    """#Configures the site
+    #Configures the site
     # install pip
     print(" Step 1 : Update laptop")
     answer = os.system("sudo apt-get update")
@@ -16,15 +15,21 @@ def configure_site():
     print(answer1)
     print("Step3 : install python environment")
     os.system("sudo apt install virtualenv")
-    os.system("virtualenv flask")      
+    os.system("virtualenv flask")
     print("creating Toolbox Service")
     # here is the code for creating the site.
-
+    print("********************")
+    print("SET UP FACILITY DETAILS")
+    get_facility_name()
+    print("SITE IS NOW CONFIGURED !!!")
+    print("********************")
     os.system("sudo cp toolbox.service /etc/systemd/system/")
-    os.system("sudo systemctl daemon-reload && sudo systemctl start toolbox && sudo systemctl enable toolbox")"""
-
-    print (':'.join(re.findall('..', '%012x' % uuid.getnode()))) # convert to hex and seperate two figures with :
-
+    os.system("sudo systemctl daemon-reload && sudo systemctl start toolbox && sudo systemctl enable toolbox")
+    print("*********** SETTING FACILITY DETAILS *****************")
+    get_facility_name()
+    mac = mac_address()
+    print(mac)
+    print("*********** END - Facility Configured Successfully *****************")
     return True
 
 

@@ -1,6 +1,9 @@
 import json
+import os
+
 from flask import Flask, render_template, request
 
+from setup_facility_details import get_facility_name
 from utils.check_config import facility_details
 from utils.encrypt_make_qr_image import encrypt_make_qr_image
 from utils.emr_systems import emr_systems
@@ -48,8 +51,12 @@ def configure():
     # return render_template('index.html')
 
 
-
-
+@app.route('/reconfig')
+def re_configure():
+    os.system("source venv/bin/activate && python -c 'import setup_facility_details; "
+              "setup_facility_details.get_facility_name()'")
+    return os.system("source venv/bin/activate && python -c 'import setup_facility_details; "
+              "setup_facility_details.get_facility_name()'")
 
 @app.route('/getEmrData')
 def get_emr_data():
@@ -102,5 +109,5 @@ def make_qr_image():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=6070)
+    app.run(host='0.0.0.0', debug=True, port=3030)
 

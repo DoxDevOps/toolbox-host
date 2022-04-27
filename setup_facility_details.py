@@ -1,6 +1,9 @@
 #! /usr/bin/python
 import json
+import os
 import urllib2
+
+
 from utils.check_config import facility_details
 import re
 import uuid
@@ -12,8 +15,9 @@ def get_facility_name():
 
 
 def search_facilities(facility_name):
-    url = 'https://toolbox.hismalawi.org/ext-api/site/get/details'
-    token = 'yyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzY0MjQ0NjR9.iRlIMoZgYUQxZMq-CZiLusUfPyofkLCA8djNbOaJYT0'
+    settings = load_settings("config/.json")
+    url = settings["endpoint"]
+    token = settings["token"]
     json_dict = {'site_name': facility_name}
 
     # convert json_dict to JSON
@@ -72,22 +76,32 @@ def save_facility(facilities, facility_number):
     site_data = {"apps": facilities[facility_number]['fields']['apps'], "name": selected_facility,
                  "uuid": facilities[facility_number]['fields']['uuid']}
     print("Selected District : " + selected_facility)
-    facility_details().save_facility_details(site_data) # then save the details in config file
+    facility_details().save_facility_details(site_data)  # then save the details in config file
+    return True
 
 
-def mac_for_ip():
+def mac_address():
     """
     gets machine MAC address
     :return:
         mac_address : mac address of a machine
     """
     # convert to hex and separate two figures with :
-    mac_address = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
+    mac_address = ':'.join(re.findall('..', '%012x' % uuid.getnode()))  # type: Union[Union[str, unicode], Any]
     return mac_address
 
 
-print("********************")
-print("SET UP FACILITY DETAILS")
-get_facility_name()
-print("SITE IS NOW CONFIGURED !!!")
-print("********************")
+def send_mac_address():
+    return True
+
+
+def load_settings(location):
+    # type: () -> object
+    """
+    a function that loads settings (token and endpoint)
+    :type location: string
+    :return: json object
+    """
+    with open(location) as f:
+        settings = json.load(f)  # type: object
+    return settings
