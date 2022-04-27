@@ -111,8 +111,8 @@ def mac_address():
         mac_address : mac address of a machine
     """
     # convert to hex and separate two figures with :
-    mac_address = ':'.join(re.findall('..', '%012x' % uuid.getnode()))  # type: Union[Union[str, unicode], Any]
-    return mac_address
+    mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
+    return mac
 
 
 def send_mac_address():
