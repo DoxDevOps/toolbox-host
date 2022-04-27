@@ -6,7 +6,7 @@ from setup_facility_details import get_facility_name, mac_address
 
 
 def configure_site():
-    #Configures the site
+    # Configures the site
     # install pip
     print(" Step 1 : Update laptop")
     answer = os.system("sudo apt-get update")
@@ -26,7 +26,8 @@ def configure_site():
     os.system("sudo cp toolbox.service /etc/systemd/system/")
     os.system("sudo systemctl daemon-reload && sudo systemctl start toolbox && sudo systemctl enable toolbox")
     print("*********** SETTING FACILITY DETAILS *****************")
-    get_facility_name()
+    os.system(". flask/bin/activate && python -c 'import setup_facility_details;  "
+              "setup_facility_details.get_facility_name()'")
     mac = mac_address()
     print(mac)
     print("*********** END - Facility Configured Successfully *****************")

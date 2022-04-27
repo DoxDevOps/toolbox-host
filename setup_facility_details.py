@@ -13,7 +13,6 @@ def get_facility_name():
     """
     facility_name = raw_input("Enter Facility Name Please : ")
     search_facilities(facility_name)
-    return True
 
 
 def search_facilities(facility_name):
@@ -43,7 +42,6 @@ def search_facilities(facility_name):
     else:
         print("\n No match Found, Please try again :")
         get_facility_name() # start all over
-    return True
 
 
 def display_facilities(facilities):
@@ -58,7 +56,6 @@ def display_facilities(facilities):
         counter += 1
         print(str(counter) + " " + facility['fields']['name'])
     select_facility(facilities, counter)
-    return True
 
 
 def select_facility(facilities, counter):
@@ -101,7 +98,6 @@ def save_facility(facilities, facility_number):
                  "uuid": facilities[facility_number]['fields']['uuid']}
     print("Selected District : " + selected_facility)
     facility_details().save_facility_details(site_data)  # then save the details in config file
-    return True
 
 
 def mac_address():
