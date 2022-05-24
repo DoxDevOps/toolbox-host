@@ -2,5 +2,5 @@
 Encoding=UTF-8
 Name=Toolbox
 Type=Link
-URL=http://0.0.0.0:6070/
-Icon=/../../../var/www/toolbox-host/templates/static/images/icon.png
+URL=http://127.0.0.1:6070/
+Icon=/../../../var/www/toolbox-offline-exporter/templates/static/images/icon.png

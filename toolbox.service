@@ -1,12 +1,12 @@
 [Unit]
-Description = EGPAF toolbox Service
+Description = Toolbox Service
 After       = network.target
 
 [Service]
 Group=www-data
-WorkingDirectory=/var/www/toolbox-host
-Environment="PATH=/var/www/toolbox-host/flask/bin"
-ExecStart=/usr/bin/python  /var/www/toolbox-host/start.py
+WorkingDirectory=/var/www/toolbox-offline-exporter
+Environment="PATH=/var/www/toolbox-offline-exporter/flask/bin"
+ExecStart=/usr/bin/python  /var/www/toolbox-offline-exporter/start.py
 
 
 # In case if it gets stopped, restart it immediately
